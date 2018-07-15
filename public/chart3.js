@@ -1,35 +1,33 @@
-let  getEconomicRateOfEachBowler = (window.data);
-let  playerName= [];
-let economy= [];
-let obj ={};
-let l =getEconomicRateOfEachBowler.length;
-for(let i=0;i<l-89;i++){
-    obj[getEconomicRateOfEachBowler[i]['key']] = getEconomicRateOfEachBowler[i]['value'];
-}
-console.log(obj+"JJ");
-economy =  Object.values(obj);
-playerName = Object.keys(obj);
+let getExtraRunsPerTeam = (window.data);
+extraRun = [];
+matche = [];
 
-let container2 = document.createElement("div");
-document.body.appendChild(container2);
+for(var i=0;i<Object.keys(getExtraRunsPerTeam).length;i++)
+{
+  matche.push(getExtraRunsPerTeam[i]["_id"]);
+  extraRun.push(getExtraRunsPerTeam[i]["total"]);
+}
+
+let container1 = document.createElement("div");
+document.body.appendChild(container1);
 window.chart = new Highcharts.Chart({
     chart: {
-        renderTo: container2,
+        renderTo: container1,
         height: 400,
         type: "column"
     },
     title: {
-        text: "IPL Econimic Rate Per Player"
+        text: "IPL Extra runs Per Team"
     },
     xAxis: {
-        categories: playerName
+        categories: matche
     },
     yAxis: {
-        text: "economy",
-        data: economy 
+        text: "extraRun",
+        data: extraRun
     },
     series: [{
-        text: "economy",
-        data: economy 
+        text: "extraRun",
+        data: extraRun
     }]
 });

@@ -1,34 +1,33 @@
-let getScoreOfEachBatsman = (window.data);
-let  BatsName = [];
-let runs= [];
-let obj ={};
-let l =getScoreOfEachBatsman.length;
-for(let i=l-1;i>l-10;i--){
-    obj[getScoreOfEachBatsman[i]['key']] = getScoreOfEachBatsman[i]['value'];
-}
-runs =  Object.values(obj);
-BatsName = Object.keys(obj);
+let getEconomicRateOfEachBowler = (window.data);
+let playerName = [];
+let economy = [];
 
-let container2 = document.createElement("div");
-document.body.appendChild(container2);
+for (var i = 0; i < Object.keys(getEconomicRateOfEachBowler).length; i++) {
+    playerName.push(getEconomicRateOfEachBowler[i]["_id"]);
+    economy.push(getEconomicRateOfEachBowler[i]["economy"]);
+}
+
+
+let container4 = document.createElement("div");
+document.body.appendChild(container4);
 window.chart = new Highcharts.Chart({
     chart: {
-        renderTo: container2,
+        renderTo: container4,
         height: 400,
         type: "column"
     },
     title: {
-        text: "IPL highest scored batsmen in 2017"
+        text: "IPL Econimic Rate Per Player"
     },
     xAxis: {
-        categories: BatsName
+        categories: playerName
     },
     yAxis: {
-        text: "runs",
-        data: runs
+        text: "economy",
+        data: economy
     },
     series: [{
-        text: "runs",
-        data: runs
+        text: "economy",
+        data: economy
     }]
 });

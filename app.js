@@ -1,7 +1,6 @@
 let MongoClient = require("mongodb").MongoClient;
 let url = "mongodb://127.0.0.1:27017";
 
-// matchesPerYear("iplData", "matches")
 function matchesPerYear(database, collections) {
     return new Promise(function (resolve, reject) {
         MongoClient.connect(url, { useNewUrlParser: true }, function (err, conn) {
@@ -18,7 +17,7 @@ function matchesPerYear(database, collections) {
                         }
                     }
                 ]).toArray(function (err, data) {
-                    // console.log(data);
+                    console.log(data);
                     resolve(data);
                 });
                 conn.close();
@@ -27,7 +26,6 @@ function matchesPerYear(database, collections) {
     })
 }
 
-seasonPerTeamWinningVar("testdb", "testMatches", "TestDeliveries");
 function seasonPerTeamWinningVar(database, collectionMatch, collectionDeliveries) {
     return new Promise(function (resolve, reject) {
         MongoClient.connect(url, { useNewUrlParser: true }, function (err, conn) {
@@ -54,17 +52,16 @@ function seasonPerTeamWinningVar(database, collectionMatch, collectionDeliveries
                         }
                     }
                 ]).toArray(function (err, data) {
-                    console.log(data);
+                    conn.close();
                     resolve(data);
                 });
-                conn.close();
+
             }
         })
     })
 }
 
 
-// getExtraRunsPerTeam("testdb", "testMatches","testDeliveries", 2016);
 function getExtraRunsPerTeam(database, collectionMatch, collectionDeliveries, year) {
     return new Promise(function (resolve, reject) {
         MongoClient.connect(url, { useNewUrlParser: true }, function (err, conn) {
@@ -108,17 +105,16 @@ function getExtraRunsPerTeam(database, collectionMatch, collectionDeliveries, ye
                         }
                     }
                 ]).toArray(function (err, data) {
-                    // console.log(data);
+                    conn.close();
                     resolve(data);
                 });
-                conn.close();
+
             }
         })
     })
 }
 
 
-// getEconomicRateOfEachBowler("testdb", "testMatches", "testDeliveries", 2015);
 function getEconomicRateOfEachBowler(database, collectionMatch, collectionDeliveries, year) {
     return new Promise(function (resolve, reject) {
         MongoClient.connect(url, { useNewUrlParser: true }, function (err, conn) {
@@ -188,16 +184,15 @@ function getEconomicRateOfEachBowler(database, collectionMatch, collectionDelive
                         $limit: 10
                     }
                 ]).toArray(function (err, data) {
-                    // console.log(data);
+                    conn.close();
                     resolve(data);
                 });
-                conn.close();
+
             }
         })
     })
 }
 
-getScoreOfEachBatsman("testdb", "testMatches", "testDeliveries", 2017);
 function getScoreOfEachBatsman(database, collectionMatch, collectionDeliveries, year) {
     return new Promise(function (resolve, reject) {
         MongoClient.connect(url, { useNewUrlParser: true }, function (err, conn) {
@@ -208,12 +203,13 @@ function getScoreOfEachBatsman(database, collectionMatch, collectionDeliveries, 
                 let matchesCol = ipldb.collection(collectionMatch);
                 matchesCol.aggregate([
                     {
-                        "$match": {
+                        $match: {
                             season: year
-                        }
+
+                        },
                     }, {
                         $lookup: {
-                            from: collectionDeliveries,
+                            from:  collectionDeliveries,
                             localField: "id",
                             foreignField: "match_id",
                             as: "deliversNew"
@@ -229,12 +225,19 @@ function getScoreOfEachBatsman(database, collectionMatch, collectionDeliveries, 
                                 $sum: "$deliversNew.batsman_runs"
                             }
                         }
+                    },
+                    {
+                        $sort: {
+                            totalRuns: -1
+                        }
+                    },
+                    {
+                        $limit: 10
                     }
                 ]).toArray(function (err, data) {
-                    console.log(data);
+                    conn.close();
                     resolve(data);
                 });
-                conn.close();
             }
         })
     })
@@ -242,96 +245,8 @@ function getScoreOfEachBatsman(database, collectionMatch, collectionDeliveries, 
 
 module.exports = {
     matchesPerYear: matchesPerYear,
-    seasonPerTeamWinningVar:seasonPerTeamWinningVar,
+    seasonPerTeamWinningVar: seasonPerTeamWinningVar,
     getExtraRunsPerTeam: getExtraRunsPerTeam,
     getEconomicRateOfEachBowler: getEconomicRateOfEachBowler,
-    getScoreOfEachBatsman:getScoreOfEachBatsman
+    getScoreOfEachBatsman: getScoreOfEachBatsman
 }
-
-// db.testDeliveries.aggregate([{ $match: { match_id : {$in:[db.testMatches.aggregate([{ $match: { season: 2016 } }, { $group: { _id: "$id" } }])]} } },
-// {
-//     $group: {
-//         _id: "$bowling_team",
-//         extraRuns: {
-//             $sum: "$extra_runs"
-//         }
-//     }
-// }
-// ])
-
-// var MongoClient = require('mongodb').MongoClient;
-// var url = "mongodb://localhost:27017/mydb";
-
-// MongoClient.connect(url, { useNewUrlParser: true } , function(err, db) {
-//   if (err) throw err;
-//   var dbo = db.db("mydb");
-
-//   dbo.createCollection("customers", function(err, res) {
-//     if (err) throw err;
-//     else
-//   {     
-//     console.log("hee")
-//   }
-//   db.close();
-//   });
-//   let customers = dbo.collections("customers");
-//   customers.insert({name:"", age: 25});
-//   dbo.customers.find({});
-// });
-
-// mongoimport -d 'demo' -c 'matches' --type csv --headerline --file /home/dev/Projects/dataProject/DataProject-vishal/data/Testdeliveries3q.csv
-// db.maches.aggregate([
-// {
-//     $match:{batting_team:"Delhi Daredevils"}
-// },
-// {
-//     $group:{
-//         _id:"$match_id",
-//         total:{
-//             $sum :"$total_runs"
-//         }
-//     }
-// }
-// ])
-
-// db.maches.aggregate([
-
-//     {
-//         $group:{
-//             _id:"$match_id",
-//             total:{
-//                 $sum :"$total_runs"
-//             }
-//         }
-//     }
-//     ])
-
-
-
-///this will give matches played per season
-// db.maches.aggregate([
-
-//     {
-//         $group:{
-//             _id:"$match_id",
-//             total:{ $sum :1 }
-//         }
-//     }
-//     ])
-
-//this will give the id of 2016 or 2015 --pending
-// db.maches.find(
-//     {
-//         match_id:{
-//             $in:[577]
-//         }
-//     },
-//         {
-//             batting_team:1
-//             match_id :1
-//         }
-//     )
-
-
-// db.maches.aggregate([ {$match :{match_id:{$in:[577,578]}}}, { $group:{ _id:"$match_id",total:{$sum:"$ball"}}}]).pretty()
-

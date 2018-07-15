@@ -1,13 +1,10 @@
 let matchesPerYear = (window.data);
 let years = [];
 let matches = [];
-for(let i=0;i<matchesPerYear.length;i++)
-{
+for (let i = 0; i < matchesPerYear.length; i++) {
     years.push(matchesPerYear[i]["_id"]);
     matches.push(matchesPerYear[i]["total"])
 }
-// years =  Object.keys(matchesPerYear);
-// matches = Object.values(matchesPerYear);
 
 let container = document.createElement("div");
 document.body.appendChild(container);

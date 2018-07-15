@@ -8,17 +8,16 @@
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-    <title>Question 1</title>
+    <title>Question 3</title>
 </head>
 
 <body>
     <script>
-        window.data = <%- getEconomicRateOfEachBowler %>
+        window.data = <%- getExtraRunsPerTeam %>
         console.log(JSON.stringify(window.data));
         console.log((window.data));
     </script>
     <script src="chart3.js"></script>
-    
 </body>
 
 </html>
