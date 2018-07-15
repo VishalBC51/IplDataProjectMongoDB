@@ -1,0 +1,10 @@
+match_id,inning,batting_team,bowling_team,over,ball,batsman,non_striker,bowler,is_super_over,wide_runs,bye_runs,legbye_runs,noball_runs,penalty_runs,batsman_runs,extra_runs,total_runs,player_dismissed,dismissal_kind,fielder
+577,2,Rising Pune Supergiants,Mumbai Indians,15,4,AM Rahane,KP Pietersen,HH Pandya,0,0,0,0,0,0,6,0,6,,,
+578,1,Delhi Daredevils,Kolkata Knight Riders,1,1,MA Agarwal,Q de Kock,AD Russell,0,0,0,0,0,0,4,0,0,,,
+577,2,Rising Pune Supergiants,Mumbai Indians,15,4,AM Rahane,KP Pietersen,HH Pandya,0,0,0,0,0,0,6,0,6,,,
+577,2,Rising Pune Supergiants,Mumbai Indians,15,4,AM Rahane,KP Pietersen,HH Pandya,0,0,0,0,0,0,6,0,6,,,
+577,2,Rising Pune Supergiants,Mumbai Indians,15,4,AM Rahane,KP Pietersen,HH Pandya,0,0,0,0,0,0,6,0,6,,,
+578,1,Delhi Daredevils,Kolkata Knight Riders,1,1,MA Agarwal,Q de Kock,AD Russell,0,0,0,0,0,0,4,0,0,,,
+578,1,Delhi Daredevils,Kolkata Knight Riders,1,1,MA Agarwal,Q de Kock,AD Russell,0,2,0,0,0,0,4,0,4,,,
+518,1,Mumbai Indians,Kolkata Knight Riders,1,1,RG Sharma,AJ Finch,AD Russell,0,0,0,0,0,0,0,0,6,,,
+518,1,Mumbai Indians,Kolkata Knight Riders,1,2,RG Sharma,AJ Finch,AD Russell,0,0,0,0,0,0,1,0,0,,,
