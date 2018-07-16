@@ -1,0 +1,28 @@
+#chartcontianer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #49494c;
+    margin: 30px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 3px solid transparent;
+}
+p{
+    padding: 6px;
+    color: white;
+}
+.item1{
+    background-color: #fbb731;
+}
+.item2{
+    background-color: #f3712e;
+}
+.item3{
+    background-color: #cf3a4d;
+}
+.item4{
+    background-color: #635faa;
+}
+.item5{
+    background-color: #4db14b;
+}

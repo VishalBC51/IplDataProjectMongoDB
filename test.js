@@ -35,16 +35,6 @@ describe("testing first question", function () {
         let result = await app.matchesPerYear("testdb", "matchesWrong");
         expect(result).deep.equal(expectedResult);
     });
-
-    it("exception", async function () {
-        const expectedResult = [{ _id: 2015, total: 3 },
-        { _id: 2017, total: 1 },
-        { _id: 2008, total: 1 },
-        { _id: 2009, total: 1 },
-        { _id: 2016, total: 4 }];
-        let result = await app.matchesPerYear("testdb", "testMatches");
-        expect(result).deep.equal(expectedResult);
-    });
 });
 describe("testing second question", function () {
     it("should return the respective matches with year and count", async function () {

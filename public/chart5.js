@@ -16,7 +16,7 @@ window.chart = new Highcharts.Chart({
         type: "column"
     },
     title: {
-        text: "IPL highest scored batsmen in 2017"
+        text: "IPL highest run scorer in 2017"
     },
     xAxis: {
         categories: BatsName
@@ -26,6 +26,7 @@ window.chart = new Highcharts.Chart({
         data: runs
     },
     series: [{
+        name:"Runs vs batsmen",
         text: "runs",
         data: runs
     }]

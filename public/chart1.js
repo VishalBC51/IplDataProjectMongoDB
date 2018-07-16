@@ -3,7 +3,7 @@ let years = [];
 let matches = [];
 for (let i = 0; i < matchesPerYear.length; i++) {
     years.push(matchesPerYear[i]["_id"]);
-    matches.push(matchesPerYear[i]["total"])
+    matches.push(matchesPerYear[i]["total"]);
 }
 
 let container = document.createElement("div");
@@ -25,6 +25,7 @@ window.chart = new Highcharts.Chart({
         data: matches
     },
     series: [{
+        name: "Matches vs years",
         text: "Year",
         data: matches
     }]

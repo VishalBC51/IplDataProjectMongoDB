@@ -27,6 +27,7 @@ window.chart = new Highcharts.Chart({
         data: extraRun
     },
     series: [{
+        name :"Extra runs vs teams",
         text: "extraRun",
         data: extraRun
     }]

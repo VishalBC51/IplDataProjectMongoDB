@@ -13,6 +13,6 @@ describe("testing of forth question", function () {
     it("wrong data", async function () {
         let expectedResult = [{ _id: 'AD Russell', economy: 24 }];
         let result = await app.getEconomicRateOfEachBowler("testdb", "matchesWrong", "deliveriesWrong", 2015);
-        expect(result).deep.equal(expectedResult);
+        expect(result).deep.not.equal(expectedResult);
     });
 });

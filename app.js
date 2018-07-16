@@ -15,6 +15,11 @@ function matchesPerYear(database, collections) {
                             _id: "$season",
                             total: { $sum: 1 }
                         }
+                    },
+                    {
+                        "$sort": {
+                            "_id": 1
+                        }
                     }
                 ]).toArray(function (err, data) {
                     resolve(data);
@@ -205,11 +210,10 @@ function getScoreOfEachBatsman(database, collectionMatch, collectionDeliveries, 
                     {
                         $match: {
                             season: year
-
                         },
                     }, {
                         $lookup: {
-                            from:  collectionDeliveries,
+                            from: collectionDeliveries,
                             localField: "id",
                             foreignField: "match_id",
                             as: "deliversNew"

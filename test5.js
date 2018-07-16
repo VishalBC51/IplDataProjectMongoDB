@@ -13,7 +13,7 @@ describe("testing of fifth question", function () {
     it("wrong data", async function () {
         let expectedResult = [{ _id: 'AM Rahane', totalRuns: 6 }];
         let result = await app.getScoreOfEachBatsman("testdb", "matchesWrong", "deliveriesWrong", 2017);
-        expect(result).deep.equal(expectedResult);
+        expect(result).deep.not.equal(expectedResult);
     });
 });
 

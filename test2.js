@@ -86,6 +86,6 @@ describe("testing second question", function () {
             count: 1
         }];
         let result = await app.seasonPerTeamWinningVar("testdb", "matchesWrong", "deliveriesWrong");
-        expect(result).deep.equal(expectedResult);
+        expect(result).deep.not.equal(expectedResult);
     });
 })

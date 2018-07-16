@@ -7,7 +7,6 @@ for (var i = 0; i < Object.keys(getEconomicRateOfEachBowler).length; i++) {
     economy.push(getEconomicRateOfEachBowler[i]["economy"]);
 }
 
-
 let container4 = document.createElement("div");
 document.body.appendChild(container4);
 window.chart = new Highcharts.Chart({
@@ -17,7 +16,7 @@ window.chart = new Highcharts.Chart({
         type: "column"
     },
     title: {
-        text: "IPL Econimic Rate Per Player"
+        text: "IPL Economic Rate Per Player"
     },
     xAxis: {
         categories: playerName
@@ -27,6 +26,7 @@ window.chart = new Highcharts.Chart({
         data: economy
     },
     series: [{
+        name:"Economic Rate per player",
         text: "economy",
         data: economy
     }]

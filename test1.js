@@ -33,7 +33,7 @@ describe("testing first question", function () {
         { _id: 2009, total: 2 },
         { _id: 2016, total: 4 }];
         let result = await app.matchesPerYear("testdb", "matchesWrong");
-        expect(result).deep.equal(expectedResult);
+        expect(result).deep.not.equal(expectedResult);
     });
 
     // it("exception", async function () {

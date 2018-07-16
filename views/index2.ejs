@@ -9,9 +9,17 @@
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
     <title>Question 2</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+    <div id="chartcontianer">
+            <a href="/1" class="item1"> <p>Chart1</p> </a>
+            <a href="/2"class="item2" > <p>Chart2</p> </a>
+            <a href="/3"class="item3"> <p>Chart3</p> </a>
+            <a href="/4"class="item4"> <p>Chart4</p> </a>
+            <a href="/5"class="item5"> <p>Chart5</p> </a>
+    </div>
     <script>
         window.data = <%- seasonPerTeamWinningVar %>
         console.log(JSON.stringify(window.data));
