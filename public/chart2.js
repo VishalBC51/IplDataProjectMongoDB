@@ -64,6 +64,7 @@ for (var m = 0; m < teams.length; m++) {
     globalarr.push(obj)
 }
 
+console.log(globalarr)
 
 let container3 = document.createElement('div');
 document.body.appendChild(container3);
@@ -74,7 +75,7 @@ window.chart = new Highcharts.Chart({
         type: 'bar'
     },
     title: {
-        text: 'Stacked bar chart'
+        text: 'seasson per team winning'
     },
     xAxis: {
         categories: seasons

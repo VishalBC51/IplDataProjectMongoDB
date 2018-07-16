@@ -21,12 +21,14 @@ appValues.seasonPerTeamWinningVar("iplData", "matches", "deliveries").then(funct
 });
 
 app.get("/2", function (req, res) {
+    console.log(seasonPerTeamWinningVar)
     res.render("index2", { seasonPerTeamWinningVar: JSON.stringify(seasonPerTeamWinningVar) });
 });
 appValues.getExtraRunsPerTeam("iplData", "matches", "deliveries", 2016).then(function (data) {
     getExtraRunsPerTeam = data;
 });
 app.get("/3", function (req, res) {
+    
     res.render("index3", { getExtraRunsPerTeam: JSON.stringify(getExtraRunsPerTeam) });
 });
 

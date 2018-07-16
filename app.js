@@ -17,7 +17,6 @@ function matchesPerYear(database, collections) {
                         }
                     }
                 ]).toArray(function (err, data) {
-                    console.log(data);
                     resolve(data);
                 });
                 conn.close();
@@ -25,6 +24,7 @@ function matchesPerYear(database, collections) {
         })
     })
 }
+
 
 function seasonPerTeamWinningVar(database, collectionMatch, collectionDeliveries) {
     return new Promise(function (resolve, reject) {
